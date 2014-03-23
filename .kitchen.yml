@@ -9,7 +9,7 @@ platforms:
   - name: ubuntu-12.04
 
 suites:
-  - name: default
+  - name: automount
     run_list:
-      - recipe[automount::default]
+      - recipe[fake::default]
     attributes:

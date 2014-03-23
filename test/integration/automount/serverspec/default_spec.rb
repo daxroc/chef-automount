@@ -38,13 +38,14 @@ end
 # Test mounts
 %w{/mnt/testshare2}.each do |mount|
 
-  describe command("stat #{mount}") do
-    it { should return_exit_status 0 }
-  end
-
   describe file(mount) do
-    it { should be_directory }
-    it { should be_mounted }
+    context 'with stat' do
+      before :all do
+        %x{ stat #{mount}/ }
+      end
+      it { should be_directory }
+      it { should be_mounted }
+    end
   end
 
 end

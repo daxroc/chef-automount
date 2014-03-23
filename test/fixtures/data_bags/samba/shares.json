@@ -1,0 +1,14 @@
+{
+    "id": "shares",
+    "shares": {
+        "TestShare": {
+            "comment": "Exported Share",
+            "path": "/var/log",
+            "guest ok": "no",
+            "printable": "no",
+            "write list": ["testshare"],
+            "create mask": "0664",
+            "directory mask": "0775"
+        }
+    }
+}

@@ -22,6 +22,7 @@ Attributes
 ----------
 
 - `['automount']['timeout']` - Idle timeout in seconds.  default 600
+- `['automount']['monit']['mounts']` - Overrides mounts to track.  default list generated from automount resources.
 
 Recipes
 -------
@@ -30,7 +31,7 @@ Recipes
 Sets up autofs.
 
 ### monit
-Optional monit supervision of autofs service.
+Optional monit supervision of autofs service.  Automatically tracks specified `automount` resources unless otherwise overriden with `['automount']['monit']['mounts']`
 
 Resources/Providers
 -------------------

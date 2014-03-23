@@ -10,6 +10,11 @@ describe service('autofs') do
   it { should be_running }
 end
 
+# autofs package, but automount process - go figure.
+describe service('automount') do
+  it { should be_monitored_by('monit') }
+end
+
 
 %w{/etc/auto.master /etc/auto.direct}.each do |f|
   describe file(f) do

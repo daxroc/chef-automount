@@ -14,6 +14,7 @@ end
 
 # Lets' mount!
 include_recipe 'automount'
+include_recipe 'automount::monit'
 
 automount "/mnt/testshare1" do
   fstype   "cifs"

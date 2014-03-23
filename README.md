@@ -10,22 +10,42 @@ Tested on
 
 Requirements
 ------------
-
+Dependency on `monit` cookbook if monit recipe is included.  Otherwise this cookbook is pretty
+much standalone.
 
 Usage
 -----
+Include the `default` recipe and specify `automount` resources.
+
 
 Attributes
 ----------
 
+- `['automount']['timeout']` - Idle timeout in seconds.  default 600
 
 Recipes
 -------
 
+### default
+Sets up autofs.
+
+### monit
+Optional monit supervision of autofs service.
 
 Resources/Providers
 -------------------
 
+### automount
+Similar to Chef `mount` resource.
+
+```ruby
+automount "/mnt/testshare1" do
+  fstype   "cifs"
+  device   "//127.0.0.1/TestShare"
+  options  "noperm,noexec,username=testshare,password=secretpass"
+  action :enable
+end
+```
 
 License & Authors
 -----------------

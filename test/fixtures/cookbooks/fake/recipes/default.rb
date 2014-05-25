@@ -10,7 +10,10 @@ end
 samba_user "testshare" do
   password "secretpass"
   action [:create, :enable]
+  notifies :restart, "service[smbd]", :immediately
 end
+
+# Force samba restart
 
 # Lets' mount!
 include_recipe 'automount'

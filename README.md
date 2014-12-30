@@ -1,11 +1,13 @@
 automount cookbook
 ------------------
+[![Build Status](https://travis-ci.org/nephilagraphic-cookbooks/automount.svg)](https://travis-ci.org/nephilagraphic-cookbooks/automount)
+
 This cookbook provides libraries, resources and providers to configure and manage automount points.
 
 Tested on
 
 * Ubuntu 12.04
-
+* Ubuntu 14.04
 
 
 Requirements

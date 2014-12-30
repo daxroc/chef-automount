@@ -1,20 +1,18 @@
 ---
-driver:
-  name: vagrant
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
   data_bags_path: "test/fixtures/data_bags"
 
 platforms:
   - name: ubuntu-12.04
+  - name: ubuntu-14.04
 
 suites:
   - name: automount
     run_list:
-      - recipe[monit::default]
       - recipe[fake::default]
-    attributes:
-      monit:
-        poll_period: 30
-        poll_start_delay: 0
+

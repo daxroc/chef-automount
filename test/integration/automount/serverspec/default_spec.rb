@@ -1,22 +1,11 @@
-require 'serverspec'
 require 'spec_helper'
-
-
-include Serverspec::Helper::Exec
-
 
 describe service('autofs') do
   it { should be_enabled }
   it { should be_running }
 end
 
-# autofs package, but automount process - go figure.
-describe service('automount') do
-  it { should be_monitored_by('monit') }
-end
-
-
-%w{/etc/auto.master /etc/auto.direct}.each do |f|
+%w(/etc/auto.master /etc/auto.direct).each do |f|
   describe file(f) do
     it { should be_file }
     it { should be_owned_by 'root' }
@@ -41,16 +30,14 @@ describe file('/mnt/testshare1') do
 end
 
 # Test mounts
-%w{/mnt/testshare2}.each do |mount|
-
+%w(/mnt/testshare2).each do |mount|
   describe file(mount) do
     context 'with stat' do
       before :all do
-        %x{ stat #{mount}/ }
+        `stat #{mount}/`
       end
       it { should be_directory }
       it { should be_mounted }
     end
   end
-
 end

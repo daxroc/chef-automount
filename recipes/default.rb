@@ -3,13 +3,13 @@
 # Recipe:: default
 #
 # Copyright (C) 2014 Nephila Graphic
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #    http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,20 +17,19 @@
 # limitations under the License.
 #
 
-
 package 'autofs5' do
   action :install
 end
 
 service 'autofs' do
-  supports [ :enable, :disable, :restart ]
-  action [ :enable ]
+  supports [:enable, :disable, :restart]
+  action [:enable]
 end
 
 file '/etc/auto.direct' do
   owner 'root'
   group 'root'
-  mode  0640
+  mode 0640
 
   action :create_if_missing
   notifies :restart, 'service[autofs]'
@@ -39,7 +38,7 @@ end
 file '/etc/auto.master' do
   owner 'root'
   group 'root'
-  mode  0644
+  mode 0644
 
   action :create_if_missing
   notifies :restart, 'service[autofs]'

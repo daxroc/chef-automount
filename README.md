@@ -10,8 +10,7 @@ Tested on
 
 Requirements
 ------------
-Dependency on `monit` cookbook if monit recipe is included.  Otherwise this cookbook is pretty
-much standalone.
+This cookbook is pretty much standalone.
 
 Usage
 -----
@@ -22,16 +21,13 @@ Attributes
 ----------
 
 - `['automount']['timeout']` - Idle timeout in seconds.  default 600
-- `['automount']['monit']['mounts']` - Overrides mounts to track.  default list generated from automount resources.
+
 
 Recipes
 -------
 
 ### default
 Sets up autofs.
-
-### monit
-Optional monit supervision of autofs service.  Automatically tracks specified `automount` resources unless otherwise overriden with `['automount']['monit']['mounts']`
 
 Resources/Providers
 -------------------

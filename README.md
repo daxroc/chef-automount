@@ -1,6 +1,6 @@
 automount cookbook
 ------------------
-[![Build Status](https://travis-ci.org/nephilagraphic-cookbooks/automount.svg)](https://travis-ci.org/nephilagraphic-cookbooks/automount)
+[![Build Status](https://travis-ci.org/nephilagraphic-cookbooks/automount.svg?branch=master)](https://travis-ci.org/nephilagraphic-cookbooks/automount)
 
 This cookbook provides libraries, resources and providers to configure and manage automount points.
 

@@ -4,9 +4,3 @@ rvm:
 - 2.1.0
 script:
 - rake travis
-notifications:
-  hipchat:
-    rooms:
-      secure: Esg4Rq3DRmLnaHyRJEEdzdAws7A8PX5oDMz99A34Zmcfcy+mS88PSnlTkIYphLgpLnyzANTwD4LLg3tLY2N2cwrszOF2Xk0bUb91Yqk38I4aCsV27/jn68+iPRli7H0SxVLYWoCHkwKzMQPwLE1Jqzt7NX2nLZsfeE6XPUov/qI=
-    template:
-    - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"

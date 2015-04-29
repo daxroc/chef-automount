@@ -16,5 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+case node["platform_family"]
+when "debian"
+  default['automount']['package']['name'] = 'autofs5'
+when "rhel"
+  default['automount']['package']['name'] = 'autofs'
+end
 
+default['automount']['service']['name'] = 'autofs'
 default['automount']['timeout'] = 600

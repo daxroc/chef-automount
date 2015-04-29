@@ -16,12 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+service_name = node['automount']['service']['name']
 
-package 'autofs5' do
+package node['automount']['package']['name'] do
   action :install
 end
 
-service 'autofs' do
+service "#{service_name}" do
   supports [:enable, :disable, :restart]
   action [:enable]
 end
@@ -30,18 +31,16 @@ file '/etc/auto.direct' do
   owner 'root'
   group 'root'
   mode 0640
-
   action :create_if_missing
-  notifies :restart, 'service[autofs]'
+  notifies :restart, "service[#{service_name}]"
 end
 
 file '/etc/auto.master' do
   owner 'root'
   group 'root'
   mode 0644
-
   action :create_if_missing
-  notifies :restart, 'service[autofs]'
+  notifies :restart, "service[#{service_name}]"
 end
 
 # Ensure the following line exists in auto.master
@@ -54,5 +53,5 @@ ruby_block 'autofs.direct' do
     rc.search_file_replace_line(/^\/\-/, "/- /etc/auto.direct --timeout=#{node['automount']['timeout']}")
     rc.write_file
   end
-  notifies :restart, 'service[autofs]'
+  notifies :restart, "service[#{service_name}]"
 end

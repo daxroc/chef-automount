@@ -35,7 +35,7 @@ def mountline
 
   case new_resource.device_type
   when :device
-    target = ":#{new_resource.device}"
+    target = "#{new_resource.device}"
   when :uuid
     target = ":UUID=#{new_resource.device}"
   when :label
